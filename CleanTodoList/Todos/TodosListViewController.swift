@@ -6,16 +6,37 @@
 //
 
 import UIKit
+import Combine
 
 class TodosListViewController : UITableViewController {
     
-    var todos: [String]?
+    let viewModel: TodosListViewModel
+    var cancellablesStore = Set<AnyCancellable>()
+    
+    init(viewModel: TodosListViewModel) {
+        self.viewModel = viewModel
+        super.init(style: .plain)
+        
+        viewModel.$todos
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &cancellablesStore)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.viewModel = TodosListViewModel()
+        super.init(coder: coder)
+    }
+    
+    deinit {
+        cancellablesStore.forEach() { cancellable in cancellable.cancel() }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Todo list"
-        
-        todos = ["todo 1", "todo 2", "todo 3"]
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
@@ -25,12 +46,12 @@ class TodosListViewController : UITableViewController {
 extension TodosListViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        todos?.count ?? 0
+        viewModel.todos?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = todos![indexPath.row]
+        cell.textLabel?.text = viewModel.todos![indexPath.row]
         return cell
     }
     

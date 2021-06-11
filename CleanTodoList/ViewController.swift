@@ -58,7 +58,9 @@ class ViewController: UIViewController {
     
     @objc private func navigateToTodoList(sender: UIButton) {
         NSLog("navigateToTodoList")
-        navigationController?.pushViewController(TodosListViewController(), animated: true)
+        navigationController?.pushViewController(
+            TodosListViewController(viewModel: TodosListViewModel()),
+            animated: true)
     }
 }
 
