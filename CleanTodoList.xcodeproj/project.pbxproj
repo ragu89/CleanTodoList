@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F735C54D2673637800B93B3A /* TodosListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F735C54C2673637800B93B3A /* TodosListViewController.swift */; };
 		F735C55026737C4F00B93B3A /* TodosListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F735C54F26737C4F00B93B3A /* TodosListViewModel.swift */; };
+		F735C55326739C0100B93B3A /* TodosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F735C55226739C0100B93B3A /* TodosService.swift */; };
+		F735C55526739C7000B93B3A /* FakeTodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F735C55426739C7000B93B3A /* FakeTodoService.swift */; };
 		F78DBEC52664B5BC002D8C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBEC42664B5BC002D8C87 /* AppDelegate.swift */; };
 		F78DBEC72664B5BC002D8C87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBEC62664B5BC002D8C87 /* SceneDelegate.swift */; };
 		F78DBEC92664B5BC002D8C87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBEC82664B5BC002D8C87 /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		F735C54C2673637800B93B3A /* TodosListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosListViewController.swift; sourceTree = "<group>"; };
 		F735C54F26737C4F00B93B3A /* TodosListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosListViewModel.swift; sourceTree = "<group>"; };
+		F735C55226739C0100B93B3A /* TodosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosService.swift; sourceTree = "<group>"; };
+		F735C55426739C7000B93B3A /* FakeTodoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTodoService.swift; sourceTree = "<group>"; };
 		F78DBEC12664B5BC002D8C87 /* CleanTodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanTodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78DBEC42664B5BC002D8C87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F78DBEC62664B5BC002D8C87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,12 +82,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F735C54B2673636500B93B3A /* Todos */ = {
+		F735C54B2673636500B93B3A /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				F735C54C2673637800B93B3A /* TodosListViewController.swift */,
 			);
-			path = Todos;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F735C54E26737C3D00B93B3A /* ViewModels */ = {
@@ -92,6 +96,15 @@
 				F735C54F26737C4F00B93B3A /* TodosListViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F735C55126739AC500B93B3A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F735C55226739C0100B93B3A /* TodosService.swift */,
+				F735C55426739C7000B93B3A /* FakeTodoService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		F78DBEB82664B5BC002D8C87 = {
@@ -117,8 +130,9 @@
 		F78DBEC32664B5BC002D8C87 /* CleanTodoList */ = {
 			isa = PBXGroup;
 			children = (
+				F735C55126739AC500B93B3A /* Services */,
 				F735C54E26737C3D00B93B3A /* ViewModels */,
-				F735C54B2673636500B93B3A /* Todos */,
+				F735C54B2673636500B93B3A /* Views */,
 				F78DBEC42664B5BC002D8C87 /* AppDelegate.swift */,
 				F78DBEC62664B5BC002D8C87 /* SceneDelegate.swift */,
 				F78DBEC82664B5BC002D8C87 /* ViewController.swift */,
@@ -278,7 +292,9 @@
 			files = (
 				F78DBEC92664B5BC002D8C87 /* ViewController.swift in Sources */,
 				F78DBEC52664B5BC002D8C87 /* AppDelegate.swift in Sources */,
+				F735C55526739C7000B93B3A /* FakeTodoService.swift in Sources */,
 				F735C55026737C4F00B93B3A /* TodosListViewModel.swift in Sources */,
+				F735C55326739C0100B93B3A /* TodosService.swift in Sources */,
 				F78DBEC72664B5BC002D8C87 /* SceneDelegate.swift in Sources */,
 				F735C54D2673637800B93B3A /* TodosListViewController.swift in Sources */,
 			);

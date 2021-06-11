@@ -13,25 +13,25 @@ class TodosListViewModel {
     @Published var todos: [String]?
     var cancellablesStore = Set<AnyCancellable>()
     
-    init() {
+    let todoService: TodosService;
+    
+    init(todoService: TodosService) {
+        self.todoService = todoService
+        
         loadTodos()
-            .sink() { todos in
-                self.todos = todos;
-            }
-            .store(in: &cancellablesStore)
     }
     
     deinit {
         cancellablesStore.forEach() { cancellable in cancellable.cancel() }
     }
     
-    private func loadTodos() -> Future<[String], Never> {
-        return Future() { promise in
-            DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-                let todos = ["todo vm 1", "todo vm 2", "todo vm 3"]
-                promise(Result.success(todos))
+    private func loadTodos() {
+        todoService
+            .fetchTodos()
+            .sink() { todos in
+                self.todos = todos;
             }
-        }
+            .store(in: &cancellablesStore)
     }
     
 }

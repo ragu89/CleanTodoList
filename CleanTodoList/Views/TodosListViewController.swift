@@ -26,7 +26,7 @@ class TodosListViewController : UITableViewController {
     }
     
     required init?(coder: NSCoder) {
-        self.viewModel = TodosListViewModel()
+        self.viewModel = TodosListViewModel(todoService: FakeTodoService())
         super.init(coder: coder)
     }
     
