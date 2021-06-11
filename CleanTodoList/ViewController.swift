@@ -9,7 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var helloLabel: UILabel!
+    var titleLabel: UILabel!
+    var todoListButton: UIButton!
     
     override func loadView() {
         view = UIView()
@@ -24,25 +25,40 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     private func createComponents() {
-        helloLabel = UILabel()
-        helloLabel.translatesAutoresizingMaskIntoConstraints = false
-        helloLabel.textAlignment = .right
-        helloLabel.text = "Hello world !"
+        titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.font = UIFont.systemFont(ofSize: 24)
+        titleLabel.text = "My Clean Todo App"
+        
+        todoListButton = UIButton(type: .system)
+        todoListButton.translatesAutoresizingMaskIntoConstraints = false
+        todoListButton.setTitle("Open the List view", for: .normal)
+        todoListButton.addTarget(self, action: #selector(navigateToTodoList), for: .touchUpInside);
     }
     
     private func addSubViews() {
-        view.addSubviewIfNotNil(helloLabel)
+        view.addSubviewIfNotNil(titleLabel)
+        view.addSubviewIfNotNil(todoListButton)
     }
     
     private func applyLayoutConstraint() {
         NSLayoutConstraint.activate([
-            helloLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            helloLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
+            titleLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 44),
+            titleLabel.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor)
         ])
+        
+        NSLayoutConstraint.activate([
+            todoListButton.centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.centerYAnchor),
+            todoListButton.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor)
+        ])
+    }
+    
+    @objc private func navigateToTodoList(sender: UIButton) {
+        NSLog("navigateToTodoList")
+        navigationController?.pushViewController(TodosListViewController(), animated: true)
     }
 }
 

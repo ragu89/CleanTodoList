@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F735C54D2673637800B93B3A /* TodosListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F735C54C2673637800B93B3A /* TodosListViewController.swift */; };
 		F78DBEC52664B5BC002D8C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBEC42664B5BC002D8C87 /* AppDelegate.swift */; };
 		F78DBEC72664B5BC002D8C87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBEC62664B5BC002D8C87 /* SceneDelegate.swift */; };
 		F78DBEC92664B5BC002D8C87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBEC82664B5BC002D8C87 /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F735C54C2673637800B93B3A /* TodosListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosListViewController.swift; sourceTree = "<group>"; };
 		F78DBEC12664B5BC002D8C87 /* CleanTodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanTodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78DBEC42664B5BC002D8C87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F78DBEC62664B5BC002D8C87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F735C54B2673636500B93B3A /* Todos */ = {
+			isa = PBXGroup;
+			children = (
+				F735C54C2673637800B93B3A /* TodosListViewController.swift */,
+			);
+			path = Todos;
+			sourceTree = "<group>";
+		};
 		F78DBEB82664B5BC002D8C87 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +107,7 @@
 		F78DBEC32664B5BC002D8C87 /* CleanTodoList */ = {
 			isa = PBXGroup;
 			children = (
+				F735C54B2673636500B93B3A /* Todos */,
 				F78DBEC42664B5BC002D8C87 /* AppDelegate.swift */,
 				F78DBEC62664B5BC002D8C87 /* SceneDelegate.swift */,
 				F78DBEC82664B5BC002D8C87 /* ViewController.swift */,
@@ -257,6 +268,7 @@
 				F78DBEC92664B5BC002D8C87 /* ViewController.swift in Sources */,
 				F78DBEC52664B5BC002D8C87 /* AppDelegate.swift in Sources */,
 				F78DBEC72664B5BC002D8C87 /* SceneDelegate.swift in Sources */,
+				F735C54D2673637800B93B3A /* TodosListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
