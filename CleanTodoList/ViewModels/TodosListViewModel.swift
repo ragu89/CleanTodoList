@@ -6,18 +6,16 @@
 //
 
 import Foundation
+import Resolver
 import Combine
 
 class TodosListViewModel {
     
     @Published var todos: [String]?
+    @Injected var todoService: TodosService;
     var cancellablesStore = Set<AnyCancellable>()
     
-    let todoService: TodosService;
-    
-    init(todoService: TodosService) {
-        self.todoService = todoService
-        
+    init() {
         loadTodos()
     }
     

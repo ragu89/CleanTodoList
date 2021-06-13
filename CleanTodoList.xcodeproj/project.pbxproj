@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,10 @@
 		F78DBED12664B5BD002D8C87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F78DBECF2664B5BD002D8C87 /* LaunchScreen.storyboard */; };
 		F78DBEDC2664B5BD002D8C87 /* CleanTodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBEDB2664B5BD002D8C87 /* CleanTodoListTests.swift */; };
 		F78DBEE72664B5BD002D8C87 /* CleanTodoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBEE62664B5BD002D8C87 /* CleanTodoListUITests.swift */; };
+		F7BB5A502676590600814382 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = F7BB5A4F2676590600814382 /* Resolver */; };
+		F7BB5A5226765C6000814382 /* _Application+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB5A5126765C6000814382 /* _Application+Injection.swift */; };
+		F7BB5A5426765D0800814382 /* _Services+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB5A5326765D0800814382 /* _Services+Injection.swift */; };
+		F7BB5A56267673E600814382 /* _ViewModels+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB5A55267673E600814382 /* _ViewModels+Injection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,9 @@
 		F78DBEE22664B5BD002D8C87 /* CleanTodoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanTodoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78DBEE62664B5BD002D8C87 /* CleanTodoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanTodoListUITests.swift; sourceTree = "<group>"; };
 		F78DBEE82664B5BD002D8C87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7BB5A5126765C6000814382 /* _Application+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_Application+Injection.swift"; sourceTree = "<group>"; };
+		F7BB5A5326765D0800814382 /* _Services+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_Services+Injection.swift"; sourceTree = "<group>"; };
+		F7BB5A55267673E600814382 /* _ViewModels+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_ViewModels+Injection.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7BB5A502676590600814382 /* Resolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				F735C54F26737C4F00B93B3A /* TodosListViewModel.swift */,
+				F7BB5A55267673E600814382 /* _ViewModels+Injection.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -103,6 +112,7 @@
 			children = (
 				F735C55226739C0100B93B3A /* TodosService.swift */,
 				F735C55426739C7000B93B3A /* FakeTodoService.swift */,
+				F7BB5A5326765D0800814382 /* _Services+Injection.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -139,6 +149,7 @@
 				F78DBECD2664B5BD002D8C87 /* Assets.xcassets */,
 				F78DBECF2664B5BD002D8C87 /* LaunchScreen.storyboard */,
 				F78DBED22664B5BD002D8C87 /* Info.plist */,
+				F7BB5A5126765C6000814382 /* _Application+Injection.swift */,
 			);
 			path = CleanTodoList;
 			sourceTree = "<group>";
@@ -177,6 +188,9 @@
 			dependencies = (
 			);
 			name = CleanTodoList;
+			packageProductDependencies = (
+				F7BB5A4F2676590600814382 /* Resolver */,
+			);
 			productName = CleanTodoList;
 			productReference = F78DBEC12664B5BC002D8C87 /* CleanTodoList.app */;
 			productType = "com.apple.product-type.application";
@@ -248,6 +262,9 @@
 				Base,
 			);
 			mainGroup = F78DBEB82664B5BC002D8C87;
+			packageReferences = (
+				F7BB5A4E2676590600814382 /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			productRefGroup = F78DBEC22664B5BC002D8C87 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -290,11 +307,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7BB5A5226765C6000814382 /* _Application+Injection.swift in Sources */,
 				F78DBEC92664B5BC002D8C87 /* ViewController.swift in Sources */,
 				F78DBEC52664B5BC002D8C87 /* AppDelegate.swift in Sources */,
 				F735C55526739C7000B93B3A /* FakeTodoService.swift in Sources */,
 				F735C55026737C4F00B93B3A /* TodosListViewModel.swift in Sources */,
 				F735C55326739C0100B93B3A /* TodosService.swift in Sources */,
+				F7BB5A56267673E600814382 /* _ViewModels+Injection.swift in Sources */,
+				F7BB5A5426765D0800814382 /* _Services+Injection.swift in Sources */,
 				F78DBEC72664B5BC002D8C87 /* SceneDelegate.swift in Sources */,
 				F735C54D2673637800B93B3A /* TodosListViewController.swift in Sources */,
 			);
@@ -621,6 +641,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F7BB5A4E2676590600814382 /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F7BB5A4F2676590600814382 /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7BB5A4E2676590600814382 /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F78DBEB92664B5BC002D8C87 /* Project object */;
 }

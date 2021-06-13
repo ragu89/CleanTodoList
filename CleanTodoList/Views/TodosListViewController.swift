@@ -6,15 +6,15 @@
 //
 
 import UIKit
+import Resolver
 import Combine
 
 class TodosListViewController : UITableViewController {
     
-    let viewModel: TodosListViewModel
+    @Injected var viewModel: TodosListViewModel
     var cancellablesStore = Set<AnyCancellable>()
     
-    init(viewModel: TodosListViewModel) {
-        self.viewModel = viewModel
+    init() {
         super.init(style: .plain)
         
         viewModel.$todos
