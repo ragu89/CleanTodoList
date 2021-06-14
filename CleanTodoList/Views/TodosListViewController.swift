@@ -70,7 +70,9 @@ class TodosListViewController : UITableViewController {
         viewModel.$todos
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
-                self?.tableView.reloadData()
+                if self?.tableView != nil {
+                    self!.reloadTableViewWithAnimation(tableView: self!.tableView)
+                }
             }
             .store(in: &cancellablesStore)
         
@@ -84,6 +86,16 @@ class TodosListViewController : UITableViewController {
                 }
             }
             .store(in: &cancellablesStore)
+    }
+    
+    private func reloadTableViewWithAnimation(tableView: UITableView) {
+        UIView.transition(
+            with: tableView,
+            duration: 0.35,
+            options: .transitionCrossDissolve,
+            animations: { tableView.reloadData() },
+            completion: nil
+        )
     }
 }
 
