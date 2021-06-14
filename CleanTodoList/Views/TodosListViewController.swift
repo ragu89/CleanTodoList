@@ -12,17 +12,21 @@ import Combine
 class TodosListViewController : UITableViewController {
     
     @Injected var viewModel: TodosListViewModel
-    var cancellablesStore = Set<AnyCancellable>()
+    
+    private var cancellablesStore = Set<AnyCancellable>()
+    private var activityIndicator: UIActivityIndicatorView!
     
     init() {
+        NSLog("TodosListViewController: init")
         super.init(style: .plain)
         
-        viewModel.$todos
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
-                self?.tableView.reloadData()
-            }
-            .store(in: &cancellablesStore)
+        createComponents()
+        
+        addSubViews()
+        
+        applyLayoutConstraint()
+        
+        registerViewModelBinding()
     }
     
     required init?(coder: NSCoder) {
@@ -34,12 +38,53 @@ class TodosListViewController : UITableViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "Todo list"
+        NSLog("TodosListViewController: viewDidLoad")
         
+        super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        title = "Todo list"
+        viewModel.loadTodos()
     }
     
+    private func createComponents() {
+        activityIndicator = UIActivityIndicatorView()
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.color = view.tintColor
+    }
+    
+    private func addSubViews() {
+        view.addSubviewIfNotNil(activityIndicator)
+    }
+    
+    private func applyLayoutConstraint() {
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.centerYAnchor)
+        ])
+    }
+    
+    private func registerViewModelBinding() {
+        
+        viewModel.$todos
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &cancellablesStore)
+        
+        viewModel.$isLoading
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isLoading in
+                if isLoading {
+                    self?.activityIndicator.startAnimating()
+                } else {
+                    self?.activityIndicator.stopAnimating()
+                }
+            }
+            .store(in: &cancellablesStore)
+    }
 }
 
 extension TodosListViewController {

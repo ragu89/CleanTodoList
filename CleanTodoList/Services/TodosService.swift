@@ -10,6 +10,6 @@ import Combine
 
 protocol TodosService {
     
-    func fetchTodos() -> Future<[String], Never>;
+    func fetchTodos() -> Future<[String], Error>;
     
 }

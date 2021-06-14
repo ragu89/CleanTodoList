@@ -12,22 +12,26 @@ import Combine
 class TodosListViewModel {
     
     @Published var todos: [String]?
-    @Injected var todoService: TodosService;
-    var cancellablesStore = Set<AnyCancellable>()
+    @Published var isLoading = false
     
-    init() {
-        loadTodos()
-    }
+    @Injected var todoService: TodosService;
+    
+    private var cancellablesStore = Set<AnyCancellable>()
     
     deinit {
         cancellablesStore.forEach() { cancellable in cancellable.cancel() }
     }
     
-    private func loadTodos() {
+    func loadTodos() {
+        NSLog("TodosListViewModel: loadTodos")
+        
+        isLoading = true
         todoService
             .fetchTodos()
+            .replaceError(with: [String]())
             .sink() { todos in
                 self.todos = todos;
+                self.isLoading = false
             }
             .store(in: &cancellablesStore)
     }
