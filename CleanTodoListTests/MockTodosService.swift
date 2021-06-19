@@ -10,13 +10,15 @@ import Combine
 
 class MockTodoService : TodosService {
     
+    static let todosSource = ["todo vm 1", "todo vm 2", "todo vm 3"]
+    
     func fetchTodos() -> Future<[String], Error> {
         NSLog("FakeTodoService: fetchTodos")
         
         return Future() { promise in
             DispatchQueue.main.async {
                 NSLog("MockTodoService: fake todos fetched")
-                let todos = ["todo vm 1", "todo vm 2", "todo vm 3"]
+                let todos = MockTodoService.todosSource
                 promise(Result.success(todos))
             }
         }

@@ -7,11 +7,18 @@
 
 import XCTest
 import Resolver
+import Combine
 
 class TodosListViewModelTest: XCTestCase {
+    
+    private static var cancellablesStore = Set<AnyCancellable>()
 
     override class func setUp() {
         Resolver.registerForTesting()
+    }
+    
+    override class func tearDown() {
+        cancellablesStore.forEach() { cancellable in cancellable.cancel() }
     }
     
     func testInitViewModel() throws {
@@ -24,6 +31,29 @@ class TodosListViewModelTest: XCTestCase {
 
         // Then
         XCTAssertNotNil(viewModel.todoService)
+    }
+    
+    func testloadTodos() throws {
+        
+        // Given
+        let mockTodoService = MockTodoService()
+        Resolver.test.register { mockTodoService as TodosService }
+        let viewModel = TodosListViewModel()
+        
+        let loadTodosExpectation = XCTestExpectation(description: "loadTodosExpectation")
+        viewModel.$todos
+            .sink { todos in
+                XCTAssertNotNil(todos)
+                XCTAssertEqual(MockTodoService.todosSource.count, todos!.count)
+                loadTodosExpectation.fulfill()
+            }
+            .store(in: &Self.cancellablesStore)
+        
+        // When
+        viewModel.loadTodos()
+
+        // Then
+        wait(for: [loadTodosExpectation], timeout: 0.5)
     }
 
 }
