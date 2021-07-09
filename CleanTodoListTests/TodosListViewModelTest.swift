@@ -31,21 +31,46 @@ class TodosListViewModelTest: XCTestCase {
 
         // Then
         XCTAssertNotNil(viewModel.todoService)
+        XCTAssertNil(viewModel.todos)
+        XCTAssertFalse(viewModel.isLoading)
     }
     
     func testloadTodos() throws {
         
         // Given
-        let mockTodoService = MockTodoService()
-        Resolver.test.register { mockTodoService as TodosService }
+        Resolver.test.register { MockTodoService() as TodosService }
         let viewModel = TodosListViewModel()
         
         let loadTodosExpectation = XCTestExpectation(description: "loadTodosExpectation")
         viewModel.$todos
             .sink { todos in
-                XCTAssertNotNil(todos)
-                XCTAssertEqual(MockTodoService.todosSource.count, todos!.count)
-                loadTodosExpectation.fulfill()
+                if todos != nil {
+                    XCTAssertEqual(MockTodoService.todosSource.count, todos!.count)
+                    loadTodosExpectation.fulfill()
+                }
+            }
+            .store(in: &Self.cancellablesStore)
+        
+        // When
+        viewModel.loadTodos()
+
+        // Then
+        wait(for: [loadTodosExpectation], timeout: 0.5)
+    }
+    
+    func testloadTodosWithError() throws {
+        
+        // Given
+        Resolver.test.register { MockErrorTodoService() as TodosService }
+        let viewModel = TodosListViewModel()
+        
+        let loadTodosExpectation = XCTestExpectation(description: "loadTodosExpectation")
+        viewModel.$todos
+            .sink { todos in
+                if todos != nil {
+                    XCTAssertEqual(0, todos!.count) // Errors should return an ampty array
+                    loadTodosExpectation.fulfill()
+                }
             }
             .store(in: &Self.cancellablesStore)
         

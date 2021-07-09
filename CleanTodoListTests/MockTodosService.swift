@@ -25,3 +25,21 @@ class MockTodoService : TodosService {
     }
     
 }
+
+class MockErrorTodoService : TodosService {
+    
+    func fetchTodos() -> Future<[String], Error> {
+        NSLog("MockErrorTodoService: fetchTodos")
+        
+        return Future() { promise in
+            DispatchQueue.main.async {
+                NSLog("MockErrorTodoService: simulate an error")
+                promise(Result.failure(MockError.fakeError))
+            }
+        }
+    }
+}
+
+enum MockError : Error {
+    case fakeError
+}
