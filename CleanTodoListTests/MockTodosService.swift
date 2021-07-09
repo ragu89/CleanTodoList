@@ -13,14 +13,11 @@ class MockTodoService : TodosService {
     static let todosSource = ["todo vm 1", "todo vm 2", "todo vm 3"]
     
     func fetchTodos() -> Future<[String], Error> {
-        NSLog("FakeTodoService: fetchTodos")
         
         return Future() { promise in
-            DispatchQueue.main.async {
-                NSLog("MockTodoService: fake todos fetched")
-                let todos = MockTodoService.todosSource
-                promise(Result.success(todos))
-            }
+            NSLog("MockTodoService: fake todos fetched")
+            let todos = MockTodoService.todosSource
+            promise(Result.success(todos))
         }
     }
     
@@ -29,13 +26,10 @@ class MockTodoService : TodosService {
 class MockErrorTodoService : TodosService {
     
     func fetchTodos() -> Future<[String], Error> {
-        NSLog("MockErrorTodoService: fetchTodos")
         
         return Future() { promise in
-            DispatchQueue.main.async {
-                NSLog("MockErrorTodoService: simulate an error")
-                promise(Result.failure(MockError.fakeError))
-            }
+            NSLog("MockErrorTodoService: simulate an error")
+            promise(Result.failure(MockError.fakeError))
         }
     }
 }

@@ -20,7 +20,6 @@
 		F78DBEC92664B5BC002D8C87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBEC82664B5BC002D8C87 /* ViewController.swift */; };
 		F78DBECE2664B5BD002D8C87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78DBECD2664B5BD002D8C87 /* Assets.xcassets */; };
 		F78DBED12664B5BD002D8C87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F78DBECF2664B5BD002D8C87 /* LaunchScreen.storyboard */; };
-		F78DBEDC2664B5BD002D8C87 /* CleanTodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBEDB2664B5BD002D8C87 /* CleanTodoListTests.swift */; };
 		F78DBEE72664B5BD002D8C87 /* CleanTodoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBEE62664B5BD002D8C87 /* CleanTodoListUITests.swift */; };
 		F7BB5A502676590600814382 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = F7BB5A4F2676590600814382 /* Resolver */; };
 		F7BB5A5226765C6000814382 /* _Application+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB5A5126765C6000814382 /* _Application+Injection.swift */; };
@@ -61,7 +60,6 @@
 		F78DBED02664B5BD002D8C87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F78DBED22664B5BD002D8C87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F78DBED72664B5BD002D8C87 /* CleanTodoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanTodoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F78DBEDB2664B5BD002D8C87 /* CleanTodoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanTodoListTests.swift; sourceTree = "<group>"; };
 		F78DBEDD2664B5BD002D8C87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F78DBEE22664B5BD002D8C87 /* CleanTodoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanTodoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78DBEE62664B5BD002D8C87 /* CleanTodoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanTodoListUITests.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 		F78DBEDA2664B5BD002D8C87 /* CleanTodoListTests */ = {
 			isa = PBXGroup;
 			children = (
-				F78DBEDB2664B5BD002D8C87 /* CleanTodoListTests.swift */,
 				F78DBEDD2664B5BD002D8C87 /* Info.plist */,
 				F7F96A3D2679D37500AEA8F1 /* TodosListViewModelTest.swift */,
 				F781E38F267CD826004C3CFC /* Resolver+XCTest.swift */,
@@ -340,7 +337,6 @@
 				F7F96A3E2679D37500AEA8F1 /* TodosListViewModelTest.swift in Sources */,
 				F781E38E267CD3C9004C3CFC /* TodosListViewModel.swift in Sources */,
 				F781E391267CD8ED004C3CFC /* TodosService.swift in Sources */,
-				F78DBEDC2664B5BD002D8C87 /* CleanTodoListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
