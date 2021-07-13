@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RootViewController: UIViewController {
     
     var titleLabel: UILabel!
     var todoListButton: UIButton!
@@ -63,12 +63,3 @@ class ViewController: UIViewController {
             animated: true)
     }
 }
-
-extension UIView {
-    func addSubviewIfNotNil(_ view: UIView?) {
-        if (view != nil) {
-            addSubview(view!)
-        }
-    }
-}
-
