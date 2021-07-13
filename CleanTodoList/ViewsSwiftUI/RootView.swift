@@ -22,7 +22,9 @@ struct RootView: View {
          
                 NavigationLink(
                     destination:
-                        TodosListView(),
+                        TodosListView(
+                            viewModel: TodosListViewModel()
+                        ),
                     label: {
                         Text("Open the List view")
                     })

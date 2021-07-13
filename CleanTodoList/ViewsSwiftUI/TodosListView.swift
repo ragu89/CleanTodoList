@@ -6,15 +6,32 @@
 //
 
 import SwiftUI
+import Resolver
 
 struct TodosListView: View {
+    
+    @ObservedObject var viewModel: TodosListViewModel
+    
     var body: some View {
-        Text("The list view")
+        ZStack {
+            
+            List(viewModel.todos, id: \.self) { todo in
+                Text(todo)
+            }.listStyle(InsetGroupedListStyle())
+            
+            if viewModel.isLoading {
+                ProgressView()
+            }
+            
+        }
+        .onAppear() {
+            viewModel.loadTodos()
+        }
     }
 }
 
 struct TodosListView_Previews: PreviewProvider {
     static var previews: some View {
-        TodosListView()
+        TodosListView(viewModel: TodosListViewModel())
     }
 }

@@ -9,9 +9,9 @@ import Foundation
 import Resolver
 import Combine
 
-class TodosListViewModel {
+class TodosListViewModel : ObservableObject {
     
-    @Published var todos: [String]?
+    @Published var todos = [String]()
     @Published var isLoading = false
     
     @Injected var todoService: TodosService;
