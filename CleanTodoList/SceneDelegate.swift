@@ -16,12 +16,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             
-//            let viewController = RootViewController()
-//            let navigation = UINavigationController(rootViewController: viewController)
-//            window.rootViewController = navigation
+            let viewController = RootViewController()
+            let navigation = UINavigationController(rootViewController: viewController)
+            window.rootViewController = navigation
             
-            let rootSwiftUIView = UIHostingController(rootView: RootView())
-            window.rootViewController = rootSwiftUIView
+//            let rootSwiftUIView = UIHostingController(rootView: RootView())
+//            window.rootViewController = rootSwiftUIView
             
             self.window = window
             window.makeKeyAndVisible()

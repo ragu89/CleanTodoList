@@ -31,7 +31,7 @@ class RootViewController: UIViewController {
         titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: 24)
-        titleLabel.text = "My Clean Todo App"
+        titleLabel.text = "My Clean Todo App in UIKit"
         
         todoListButton = UIButton(type: .system)
         todoListButton.translatesAutoresizingMaskIntoConstraints = false

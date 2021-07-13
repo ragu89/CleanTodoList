@@ -104,14 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F735C54B2673636500B93B3A /* Views */ = {
+		F735C54B2673636500B93B3A /* ViewsUIKit */ = {
 			isa = PBXGroup;
 			children = (
 				F791F667269DB50F00F11822 /* Helpers */,
 				F78DBEC82664B5BC002D8C87 /* RootViewController.swift */,
 				F735C54C2673637800B93B3A /* TodosListViewController.swift */,
 			);
-			path = Views;
+			path = ViewsUIKit;
 			sourceTree = "<group>";
 		};
 		F735C54E26737C3D00B93B3A /* ViewModels */ = {
@@ -157,7 +157,7 @@
 				F791F66C269DB6FB00F11822 /* Resolver */,
 				F735C55126739AC500B93B3A /* Services */,
 				F735C54E26737C3D00B93B3A /* ViewModels */,
-				F735C54B2673636500B93B3A /* Views */,
+				F735C54B2673636500B93B3A /* ViewsUIKit */,
 				F791F66D269DBDE100F11822 /* ViewsSwiftUI */,
 				F78DBEC42664B5BC002D8C87 /* AppDelegate.swift */,
 				F78DBEC62664B5BC002D8C87 /* SceneDelegate.swift */,
