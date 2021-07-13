@@ -23,6 +23,8 @@
 		F78DBEE72664B5BD002D8C87 /* CleanTodoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBEE62664B5BD002D8C87 /* CleanTodoListUITests.swift */; };
 		F791F669269DB53500F11822 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791F668269DB53500F11822 /* UIView+Extension.swift */; };
 		F791F66B269DB63300F11822 /* AnimationsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791F66A269DB63300F11822 /* AnimationsHelper.swift */; };
+		F791F66F269DBE2200F11822 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791F66E269DBE2200F11822 /* RootView.swift */; };
+		F791F671269DBEFC00F11822 /* TodosListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791F670269DBEFC00F11822 /* TodosListView.swift */; };
 		F7BB5A502676590600814382 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = F7BB5A4F2676590600814382 /* Resolver */; };
 		F7BB5A5226765C6000814382 /* _Application+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB5A5126765C6000814382 /* _Application+Injection.swift */; };
 		F7BB5A5426765D0800814382 /* _Services+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB5A5326765D0800814382 /* _Services+Injection.swift */; };
@@ -68,6 +70,8 @@
 		F78DBEE82664B5BD002D8C87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F791F668269DB53500F11822 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		F791F66A269DB63300F11822 /* AnimationsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsHelper.swift; sourceTree = "<group>"; };
+		F791F66E269DBE2200F11822 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		F791F670269DBEFC00F11822 /* TodosListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosListView.swift; sourceTree = "<group>"; };
 		F7BB5A5126765C6000814382 /* _Application+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_Application+Injection.swift"; sourceTree = "<group>"; };
 		F7BB5A5326765D0800814382 /* _Services+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_Services+Injection.swift"; sourceTree = "<group>"; };
 		F7BB5A55267673E600814382 /* _ViewModels+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_ViewModels+Injection.swift"; sourceTree = "<group>"; };
@@ -104,8 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				F791F667269DB50F00F11822 /* Helpers */,
-				F735C54C2673637800B93B3A /* TodosListViewController.swift */,
 				F78DBEC82664B5BC002D8C87 /* RootViewController.swift */,
+				F735C54C2673637800B93B3A /* TodosListViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -154,6 +158,7 @@
 				F735C55126739AC500B93B3A /* Services */,
 				F735C54E26737C3D00B93B3A /* ViewModels */,
 				F735C54B2673636500B93B3A /* Views */,
+				F791F66D269DBDE100F11822 /* ViewsSwiftUI */,
 				F78DBEC42664B5BC002D8C87 /* AppDelegate.swift */,
 				F78DBEC62664B5BC002D8C87 /* SceneDelegate.swift */,
 				F78DBECD2664B5BD002D8C87 /* Assets.xcassets */,
@@ -200,6 +205,15 @@
 				F7BB5A55267673E600814382 /* _ViewModels+Injection.swift */,
 			);
 			path = Resolver;
+			sourceTree = "<group>";
+		};
+		F791F66D269DBDE100F11822 /* ViewsSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				F791F66E269DBE2200F11822 /* RootView.swift */,
+				F791F670269DBEFC00F11822 /* TodosListView.swift */,
+			);
+			path = ViewsSwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,11 +355,13 @@
 				F791F669269DB53500F11822 /* UIView+Extension.swift in Sources */,
 				F7BB5A5226765C6000814382 /* _Application+Injection.swift in Sources */,
 				F78DBEC92664B5BC002D8C87 /* RootViewController.swift in Sources */,
+				F791F671269DBEFC00F11822 /* TodosListView.swift in Sources */,
 				F78DBEC52664B5BC002D8C87 /* AppDelegate.swift in Sources */,
 				F735C55526739C7000B93B3A /* FakeTodoService.swift in Sources */,
 				F735C55026737C4F00B93B3A /* TodosListViewModel.swift in Sources */,
 				F735C55326739C0100B93B3A /* TodosService.swift in Sources */,
 				F7BB5A56267673E600814382 /* _ViewModels+Injection.swift in Sources */,
+				F791F66F269DBE2200F11822 /* RootView.swift in Sources */,
 				F7BB5A5426765D0800814382 /* _Services+Injection.swift in Sources */,
 				F78DBEC72664B5BC002D8C87 /* SceneDelegate.swift in Sources */,
 				F735C54D2673637800B93B3A /* TodosListViewController.swift in Sources */,
