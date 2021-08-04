@@ -13,12 +13,14 @@ For both UIKit and SwiftUI, The entry point is the [SceneDelegate](https://githu
 In that way, you can easily choose which App you want to start (UIKit or SwiftUI). For a pure SwiftUI app, consider to use the [@main attribute](https://github.com/apple/swift-evolution/blob/master/proposals/0281-main-attribute.md) from Swift 5.3 together with the [UIApplicationDelegateAdaptor](https://developer.apple.com/documentation/swiftui/uiapplicationdelegateadaptor) from iOS 14 ([example](https://www.hackingwithswift.com/quick-start/swiftui/how-to-add-an-appdelegate-to-a-swiftui-app)).
 
 ## UIKit implementation
-
+todo
 
 ## SwiftUI implementation
-
+todo
 
 ## Dependency injection
+Resolver and its new [annotation injection strategy](https://github.com/hmlongco/Resolver/blob/master/Documentation/Injection.md#annotation) seems to be a good candidate for a lightweight DI framework with few boilerplate code.<br/>
+Another good choice proposed on SwiftLee would be to write [our own implementation without a 3rd party library](https://www.avanderlee.com/swift/dependency-injection/). The paper described several advantages. But I think Resolver is light enough. If I face any problem, I would definitively switch to my own implementation.
 
 
 ## TODO
