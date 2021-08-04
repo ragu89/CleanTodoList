@@ -16,16 +16,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             
-            let viewController = RootViewController()
-            let navigation = UINavigationController(rootViewController: viewController)
-            window.rootViewController = navigation
-            
-//            let rootSwiftUIView = UIHostingController(rootView: RootView())
-//            window.rootViewController = rootSwiftUIView
+//            runUIKitExample(on: window)
+            runSwiftUIExample(on: window)
             
             self.window = window
             window.makeKeyAndVisible()
         }
+    }
+    
+    private func runSwiftUIExample(on window: UIWindow) {
+        let viewController = RootViewController()
+        let navigation = UINavigationController(rootViewController: viewController)
+        window.rootViewController = navigation
+    }
+    
+    private func runUIKitExample(on window: UIWindow) {
+        let rootView = UIHostingController(rootView: RootView())
+        window.rootViewController = rootView
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
