@@ -19,8 +19,9 @@ todo
 todo
 
 ## Dependency injection
-Resolver and its new [annotation injection strategy](https://github.com/hmlongco/Resolver/blob/master/Documentation/Injection.md#annotation) seems to be a good candidate for a lightweight DI framework with few boilerplate code.<br/>
-Another good choice proposed on SwiftLee would be to write [our own implementation without a 3rd party library](https://www.avanderlee.com/swift/dependency-injection/). The paper described several advantages. But I think Resolver is light enough. If I face any problem, I would definitively switch to my own implementation.
+Resolver and its [annotation injection strategy](https://github.com/hmlongco/Resolver/blob/master/Documentation/Injection.md#annotation) is a good candidate for a lightweight DI strategy. It doesn't contain a lot of boilerplate code and it's easy to setup ([example](https://github.com/ragu89/CleanTodoList/tree/main/CleanTodoList/Resolver) as described in the [official documentation](https://github.com/hmlongco/Resolver/blob/master/Documentation/Registration.md#add-the-appdelegate-injection-file)).<br/>
+Another good choice proposed on SwiftLee is to write [your own implementation without a 3rd party library](https://www.avanderlee.com/swift/dependency-injection/).<br/>
+The paper described several advantages. Consider to switch to this strategy if you want to reduce your dependencies.
 
 
 ## TODO
