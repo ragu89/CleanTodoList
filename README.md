@@ -29,7 +29,7 @@ For project targetting iOS13+, it should be the default choice.<br/><br/>
 If you need, you can always create specific UIKit views and integrate it to the SwiftUI project (and vice versa). Check the Apple [official lesson](https://developer.apple.com/tutorials/swiftui/interfacing-with-uikit) or the [SwiftLee example](https://www.avanderlee.com/swiftui/integrating-swiftui-with-uikit/).
 
 ## Dependency manager
-As the new standard build by Apple, consider to use Swift Packages when it's possible.<br/> 
+As the new standard built by Apple, consider to use Swift Packages when it's possible.<br/> 
 Every dependency managers have pros and cons, there are a lot of existing comparison on the web (for example [here](https://www.codementor.io/blog/swift-package-manager-5f85eqvygj) or [here](https://manasaprema04.medium.com/dependency-managers-in-swift-d6a01e7a29a8)).
 
 ## Dependency injection
@@ -43,7 +43,7 @@ The paper described several advantages. Consider to switch to this strategy if y
 - [x] Setup project with DI and unit tests<br/>
 - [x] UIKit implementation - first view and navigation<br/>
 - [x] SwiftUI implementation - first view and navigation<br/>
-- [ ] Writting doc in README<br/>
+- [x] Writting doc in README<br/>
 - [ ] Create a Model<br/>
 - [ ] Create a real service connected to a back-end<br/>
 - [ ] Implement more CRUD features<br/>
