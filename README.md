@@ -23,7 +23,10 @@ Productivity and efficiency could also be better. But for a senior developer who
 The main cons is the learning curve of the [manual implementation of the constraints](https://github.com/ragu89/CleanTodoList/blob/main/CleanTodoList/ViewsUIKit/RootViewController.swift#L47).
 
 ## SwiftUI implementation
-todo
+With the standard [ObservedObject](https://developer.apple.com/documentation/swiftui/observedobject) property wrapper, the views are refreshed every time a ViewModel's property is changed/published (example in the [TodoListView](https://github.com/ragu89/CleanTodoList/blob/main/CleanTodoList/ViewsSwiftUI/TodosListView.swift#L18) with its [ViewModel](https://github.com/ragu89/CleanTodoList/blob/main/CleanTodoList/ViewModels/TodosListViewModel.swift#L14)).<br/><br/>
+The declarative syntax allow us to define easily the expected views responding to different states.<br/>
+For project targetting iOS13+, it should be the default choice.<br/><br/>
+If you need, you can always create specific UIKit views and integrate it to the SwiftUI project (and vice versa). Check the Apple [official lesson](https://developer.apple.com/tutorials/swiftui/interfacing-with-uikit) or the [SwiftLee example](https://www.avanderlee.com/swiftui/integrating-swiftui-with-uikit/).
 
 ## Dependency manager
 As the new standard build by Apple, consider to use Swift Packages when it's possible.<br/> 
