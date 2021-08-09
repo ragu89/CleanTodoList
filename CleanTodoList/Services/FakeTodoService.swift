@@ -10,13 +10,18 @@ import Combine
 
 class FakeTodoService : TodosService {
     
-    func fetchTodos() -> Future<[String], Error> {
+    func fetchTodos() -> Future<[Todo], Error> {
         NSLog("FakeTodoService: fetchTodos")
         
         return Future() { promise in
             DispatchQueue.main.asyncAfter(deadline: .now()+2) {
                 NSLog("FakeTodoService: fake todos fetched")
-                let todos = ["todo vm 1", "todo vm 2", "todo vm 3"]
+                let todos = [
+                    Todo(id: "1", title: "First todo item", isDone: false),
+                    Todo(id: "2", title: "Second todo item", isDone: false),
+                    Todo(id: "3", title: "Third todo item", isDone: false),
+                    Todo(id: "4", title: "Fourth todo item", isDone: false),
+                ]
                 promise(Result.success(todos))
             }
         }

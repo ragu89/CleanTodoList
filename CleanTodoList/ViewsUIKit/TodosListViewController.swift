@@ -97,7 +97,7 @@ extension TodosListViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = viewModel.todos[indexPath.row]
+        cell.textLabel?.text = viewModel.todos[indexPath.row].title
         return cell
     }
     

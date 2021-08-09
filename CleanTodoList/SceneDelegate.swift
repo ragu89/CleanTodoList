@@ -24,13 +24,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
-    private func runSwiftUIExample(on window: UIWindow) {
+    private func runUIKitExample(on window: UIWindow) {
         let viewController = RootViewController()
         let navigation = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigation
     }
     
-    private func runUIKitExample(on window: UIWindow) {
+    private func runSwiftUIExample(on window: UIWindow) {
         let rootView = UIHostingController(rootView: RootView())
         window.rootViewController = rootView
     }

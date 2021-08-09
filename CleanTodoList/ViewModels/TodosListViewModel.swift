@@ -11,7 +11,7 @@ import Combine
 
 class TodosListViewModel : ObservableObject {
     
-    @Published var todos = [String]()
+    @Published var todos = [Todo]()
     @Published var isLoading = false
     
     @Injected var todoService: TodosService;
@@ -28,7 +28,7 @@ class TodosListViewModel : ObservableObject {
         isLoading = true
         todoService
             .fetchTodos()
-            .replaceError(with: [String]())
+            .replaceError(with: [Todo]())
             .sink() { todos in
                 self.todos = todos;
                 self.isLoading = false
