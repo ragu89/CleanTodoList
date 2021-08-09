@@ -44,7 +44,7 @@ The paper described several advantages. Consider to switch to this strategy if y
 - [x] UIKit implementation - first view and navigation<br/>
 - [x] SwiftUI implementation - first view and navigation<br/>
 - [x] Writting doc in README<br/>
-- [ ] Create a Model<br/>
+- [x] Create a Model<br/>
 - [ ] Create a real service connected to a back-end<br/>
 - [ ] Implement more CRUD features<br/>
 - [ ] Specify more topics (UI tests, Accessibility, Logger, ...)
