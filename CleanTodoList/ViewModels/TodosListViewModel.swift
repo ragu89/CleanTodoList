@@ -8,6 +8,7 @@
 import Foundation
 import Resolver
 import Combine
+import FirebaseAnalytics
 
 class TodosListViewModel : ObservableObject {
     
@@ -17,6 +18,10 @@ class TodosListViewModel : ObservableObject {
     @Injected var todoService: TodosService;
     
     private var cancellablesStore = Set<AnyCancellable>()
+    
+    init() {
+        Analytics.logEvent("TodosListViewModel_init", parameters: nil)
+    }
     
     deinit {
         cancellablesStore.forEach() { cancellable in cancellable.cancel() }

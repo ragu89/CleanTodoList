@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53BE444A26C9B01800B7D0B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53BE444926C9B01800B7D0B7 /* GoogleService-Info.plist */; };
+		53BE444D26C9B1FE00B7D0B7 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53BE444C26C9B1FE00B7D0B7 /* FirebaseAnalytics */; };
+		53BE444F26C9B1FE00B7D0B7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 53BE444E26C9B1FE00B7D0B7 /* FirebaseFirestore */; };
 		53DC0F0626C1011A00B8B709 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DC0F0526C1011A00B8B709 /* Todo.swift */; };
 		F735C54D2673637800B93B3A /* TodosListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F735C54C2673637800B93B3A /* TodosListViewController.swift */; };
 		F735C55026737C4F00B93B3A /* TodosListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F735C54F26737C4F00B93B3A /* TodosListViewModel.swift */; };
@@ -51,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		53BE444926C9B01800B7D0B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		53DC0F0526C1011A00B8B709 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		F735C54C2673637800B93B3A /* TodosListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosListViewController.swift; sourceTree = "<group>"; };
 		F735C54F26737C4F00B93B3A /* TodosListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosListViewModel.swift; sourceTree = "<group>"; };
@@ -85,7 +89,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53BE444D26C9B1FE00B7D0B7 /* FirebaseAnalytics in Frameworks */,
 				F7BB5A502676590600814382 /* Resolver in Frameworks */,
+				53BE444F26C9B1FE00B7D0B7 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +181,7 @@
 				F78DBECD2664B5BD002D8C87 /* Assets.xcassets */,
 				F78DBECF2664B5BD002D8C87 /* LaunchScreen.storyboard */,
 				F78DBED22664B5BD002D8C87 /* Info.plist */,
+				53BE444926C9B01800B7D0B7 /* GoogleService-Info.plist */,
 			);
 			path = CleanTodoList;
 			sourceTree = "<group>";
@@ -245,6 +252,8 @@
 			name = CleanTodoList;
 			packageProductDependencies = (
 				F7BB5A4F2676590600814382 /* Resolver */,
+				53BE444C26C9B1FE00B7D0B7 /* FirebaseAnalytics */,
+				53BE444E26C9B1FE00B7D0B7 /* FirebaseFirestore */,
 			);
 			productName = CleanTodoList;
 			productReference = F78DBEC12664B5BC002D8C87 /* CleanTodoList.app */;
@@ -319,6 +328,7 @@
 			mainGroup = F78DBEB82664B5BC002D8C87;
 			packageReferences = (
 				F7BB5A4E2676590600814382 /* XCRemoteSwiftPackageReference "Resolver" */,
+				53BE444B26C9B1FE00B7D0B7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F78DBEC22664B5BC002D8C87 /* Products */;
 			projectDirPath = "";
@@ -338,6 +348,7 @@
 			files = (
 				F78DBED12664B5BD002D8C87 /* LaunchScreen.storyboard in Resources */,
 				F78DBECE2664B5BD002D8C87 /* Assets.xcassets in Resources */,
+				53BE444A26C9B01800B7D0B7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +718,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		53BE444B26C9B1FE00B7D0B7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 8.5.0;
+			};
+		};
 		F7BB5A4E2676590600814382 /* XCRemoteSwiftPackageReference "Resolver" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Resolver.git";
@@ -718,6 +737,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		53BE444C26C9B1FE00B7D0B7 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53BE444B26C9B1FE00B7D0B7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		53BE444E26C9B1FE00B7D0B7 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53BE444B26C9B1FE00B7D0B7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		F7BB5A4F2676590600814382 /* Resolver */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F7BB5A4E2676590600814382 /* XCRemoteSwiftPackageReference "Resolver" */;
