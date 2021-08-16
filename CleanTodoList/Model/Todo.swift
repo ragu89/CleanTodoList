@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-struct Todo : Hashable {
+struct Todo : Hashable, Codable {
     
-    let id: String
+    @DocumentID var id: String?
     let title: String
     let isDone: Bool
     

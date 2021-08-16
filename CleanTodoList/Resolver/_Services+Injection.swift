@@ -11,6 +11,6 @@ import Resolver
 
 extension Resolver {
     public static func registerServices() {
-        register { FakeTodoService() as TodosService }
+        register { FirestoreTodosService() as TodosService }
     }
 }

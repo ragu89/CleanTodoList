@@ -21,6 +21,10 @@ class TodosListViewModel : ObservableObject {
     
     init() {
         Analytics.logEvent("TodosListViewModel_init", parameters: nil)
+        
+        todoService.todosPublisher
+            .assign(to: \.todos, on: self)
+            .store(in: &cancellablesStore)
     }
     
     deinit {
@@ -29,16 +33,8 @@ class TodosListViewModel : ObservableObject {
     
     func loadTodos() {
         NSLog("TodosListViewModel: loadTodos")
-        
-        isLoading = true
-        todoService
-            .fetchTodos()
-            .replaceError(with: [Todo]())
-            .sink() { todos in
-                self.todos = todos;
-                self.isLoading = false
-            }
-            .store(in: &cancellablesStore)
+        Analytics.logEvent("TodosListViewModel_loadTodos", parameters: nil)
+        todoService.get()
     }
     
 }
