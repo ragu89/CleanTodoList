@@ -10,8 +10,8 @@ import Foundation
 struct Todo : Hashable {
     
     let id: String
-    let title: String
-    let isDone: Bool
+    var title: String
+    var isDone: Bool
     
     static func == (a: Todo, b: Todo) -> Bool {
         return a.id == b.id

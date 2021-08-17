@@ -15,22 +15,50 @@ struct TodosListView: View {
     var body: some View {
         ZStack {
             
-            List(viewModel.todos, id: \.self) { todo in
-                NavigationLink(
-                    todo.title,
-                    destination: TodoDetailsView(
-                        viewModel: TodoDetailsViewModel(todoId: todo.id)
-                    )
-                )
-            }.listStyle(InsetGroupedListStyle())
-            
             if viewModel.isLoading {
                 ProgressView()
+            } else {
+                VStack {
+                    VStack {
+                        ForEach(viewModel.todos.indices, id: \.self) { todoIndex in
+                            createTodoCell(todoIndex: todoIndex)
+                        }
+                    }
+                    Spacer()
+                }
             }
-            
         }
         .onAppear() {
             viewModel.loadTodos()
+        }
+    }
+    
+    private func createTodoCell(todoIndex: Int) -> some View {
+        Group {
+            HStack {
+                TodoCheckbox(isOn: $viewModel.todos[todoIndex].isDone)
+                    .foregroundColor(.black)
+                NavigationLink(
+                    destination: TodoDetailsView(
+                        viewModel: TodoDetailsViewModel(
+                            todoId: viewModel.todos[todoIndex].id
+                        )
+                    ),
+                    label: {
+                        HStack {
+                            Text(viewModel.todos[todoIndex].title)
+                                .foregroundColor(.black)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.black)
+                        }
+                        
+                    }
+                )
+            }
+            .padding()
+            
+            Divider()
         }
     }
 }
