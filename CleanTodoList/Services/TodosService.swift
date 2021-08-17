@@ -10,6 +10,7 @@ import Combine
 
 protocol TodosService {
     
-    func fetchTodos() -> Future<[Todo], Error>;
+    func fetchTodos() -> Future<[Todo], Error>
+    func fetchTodo(_ todoId: String) -> Future<Todo?, Error>
     
 }

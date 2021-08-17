@@ -16,7 +16,12 @@ struct TodosListView: View {
         ZStack {
             
             List(viewModel.todos, id: \.self) { todo in
-                Text(todo.title)
+                NavigationLink(
+                    todo.title,
+                    destination: TodoDetailsView(
+                        viewModel: TodoDetailsViewModel(todoId: todo.id)
+                    )
+                )
             }.listStyle(InsetGroupedListStyle())
             
             if viewModel.isLoading {

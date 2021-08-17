@@ -27,4 +27,16 @@ class FakeTodoService : TodosService {
         }
     }
     
+    func fetchTodo(_ todoId: String) -> Future<Todo?, Error> {
+        NSLog("FakeTodoService: fetchTodo for id \(todoId)")
+        
+        return Future() { promise in
+            DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+                NSLog("FakeTodoService: fake todo fetched")
+                let todo = Todo(id: "1", title: "This is a mock", isDone: false)
+                promise(Result.success(todo))
+            }
+        }
+    }
+    
 }

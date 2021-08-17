@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53A2670C26CBE5A800F9D5A8 /* TodoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A2670B26CBE5A800F9D5A8 /* TodoDetailsView.swift */; };
+		53A2670E26CBE5EE00F9D5A8 /* TodoDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A2670D26CBE5EE00F9D5A8 /* TodoDetailsViewModel.swift */; };
 		53DC0F0626C1011A00B8B709 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DC0F0526C1011A00B8B709 /* Todo.swift */; };
 		F735C54D2673637800B93B3A /* TodosListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F735C54C2673637800B93B3A /* TodosListViewController.swift */; };
 		F735C55026737C4F00B93B3A /* TodosListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F735C54F26737C4F00B93B3A /* TodosListViewModel.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		53A2670B26CBE5A800F9D5A8 /* TodoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsView.swift; sourceTree = "<group>"; };
+		53A2670D26CBE5EE00F9D5A8 /* TodoDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsViewModel.swift; sourceTree = "<group>"; };
 		53DC0F0526C1011A00B8B709 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		F735C54C2673637800B93B3A /* TodosListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosListViewController.swift; sourceTree = "<group>"; };
 		F735C54F26737C4F00B93B3A /* TodosListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosListViewModel.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				F735C54F26737C4F00B93B3A /* TodosListViewModel.swift */,
+				53A2670D26CBE5EE00F9D5A8 /* TodoDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 			children = (
 				F791F66E269DBE2200F11822 /* RootView.swift */,
 				F791F670269DBEFC00F11822 /* TodosListView.swift */,
+				53A2670B26CBE5A800F9D5A8 /* TodoDetailsView.swift */,
 			);
 			path = ViewsSwiftUI;
 			sourceTree = "<group>";
@@ -365,10 +371,12 @@
 				F791F66B269DB63300F11822 /* AnimationsHelper.swift in Sources */,
 				F791F669269DB53500F11822 /* UIView+Extension.swift in Sources */,
 				F7BB5A5226765C6000814382 /* _Application+Injection.swift in Sources */,
+				53A2670E26CBE5EE00F9D5A8 /* TodoDetailsViewModel.swift in Sources */,
 				F78DBEC92664B5BC002D8C87 /* RootViewController.swift in Sources */,
 				53DC0F0626C1011A00B8B709 /* Todo.swift in Sources */,
 				F791F671269DBEFC00F11822 /* TodosListView.swift in Sources */,
 				F78DBEC52664B5BC002D8C87 /* AppDelegate.swift in Sources */,
+				53A2670C26CBE5A800F9D5A8 /* TodoDetailsView.swift in Sources */,
 				F735C55526739C7000B93B3A /* FakeTodoService.swift in Sources */,
 				F735C55026737C4F00B93B3A /* TodosListViewModel.swift in Sources */,
 				F735C55326739C0100B93B3A /* TodosService.swift in Sources */,
