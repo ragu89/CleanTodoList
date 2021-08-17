@@ -13,6 +13,7 @@ class TodoDetailsViewModel : ObservableObject {
     
     @Published var todo: Todo?
     @Published var isLoading = false
+    @Published var isDone = false
     
     @Injected var todoService: TodosService
     
@@ -29,6 +30,7 @@ class TodoDetailsViewModel : ObservableObject {
             .replaceError(with: nil)
             .sink() { todo in
                 self.todo = todo;
+                self.isDone = todo != nil ? todo!.isDone : false
                 self.isLoading = false
             }
             .store(in: &cancellablesStore)

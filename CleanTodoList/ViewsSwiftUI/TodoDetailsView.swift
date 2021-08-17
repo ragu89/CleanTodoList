@@ -12,16 +12,20 @@ struct TodoDetailsView: View {
     @ObservedObject var viewModel: TodoDetailsViewModel
     
     var body: some View {
+        if viewModel.todo != nil {
+            loadedView
+        } else if viewModel.isLoading {
+            ProgressView()
+        } else {
+            Text("Error while loading Todo item")
+        }
+    }
+    
+    var loadedView: some View {
         VStack {
-            if viewModel.todo != nil {
-                Text(viewModel.todo!.id)
-                Text(viewModel.todo!.title)
-                Text(viewModel.todo!.isDone ? "Done!" : "Not done yet...")
-            } else if viewModel.isLoading {
-                ProgressView()
-            } else {
-                Text("Error while loading Todo item")
-            }
+            Text(viewModel.todo!.id)
+            Text(viewModel.todo!.title)
+            TodoCheckbox(isOn: $viewModel.isDone)
         }
     }
 }
