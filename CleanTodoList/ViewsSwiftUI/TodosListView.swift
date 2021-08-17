@@ -16,7 +16,11 @@ struct TodosListView: View {
         ZStack {
             
             List(viewModel.todos, id: \.self) { todo in
-                Text(todo.title)
+                VStack(alignment: .leading) {
+                    Text(todo.title)
+                    Text(todo.createdDateFormatted)
+                        .font(.caption)
+                }.padding(4)
             }.listStyle(InsetGroupedListStyle())
             
             if viewModel.isLoading {

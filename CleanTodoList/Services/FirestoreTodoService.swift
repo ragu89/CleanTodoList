@@ -20,14 +20,19 @@ class FirestoreTodosService : TodosService, ObservableObject {
     func get() {
         Firestore.firestore().collection(documentName)
           .addSnapshotListener { querySnapshot, error in
+            
             if let error = error {
               print("Error getting todo items: \(error.localizedDescription)")
               return
             }
 
-            self.todos = querySnapshot?.documents.compactMap { document in
+            var todos = querySnapshot?.documents.compactMap { document in
               try? document.data(as: Todo.self)
             } ?? []
+            todos.sort(by: { todo1, todo2 in
+                return todo1.createdDate < todo2.createdDate
+            })
+            self.todos = todos;
           }
     }
     
