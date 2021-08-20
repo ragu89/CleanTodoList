@@ -13,8 +13,17 @@ struct TodosListView: View {
     @ObservedObject var viewModel: TodosListViewModel
     
     var body: some View {
-        ZStack {
-            
+        
+        content
+            .onAppear() {
+                viewModel.loadTodos()
+            }
+            .navigationTitle("Todos list")
+        
+    }
+    
+    private var content: some View {
+        ScrollView {
             if viewModel.isLoading {
                 ProgressView()
             } else {
@@ -27,9 +36,6 @@ struct TodosListView: View {
                     Spacer()
                 }
             }
-        }
-        .onAppear() {
-            viewModel.loadTodos()
         }
     }
     
