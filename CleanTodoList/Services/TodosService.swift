@@ -10,8 +10,7 @@ import Combine
 
 protocol TodosService {
     
-    func get() -> AnyPublisher<[Todo], Error>
-    func fetchTodos() -> Future<[Todo], Error>
-    func fetchTodo(_ todoId: String) -> Future<Todo?, Error>
+    func getAll() -> AnyPublisher<[Todo], Error>
+    func get(_ todoId: String) -> AnyPublisher<Todo?, Error>
     
 }

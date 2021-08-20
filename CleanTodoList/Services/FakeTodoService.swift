@@ -10,11 +10,19 @@ import Combine
 
 class FakeTodoService : TodosService {
     
-    func get() -> AnyPublisher<[Todo], Error> {
+    func getAll() -> AnyPublisher<[Todo], Error> {
         return fetchTodos().eraseToAnyPublisher()
     }
     
-    func fetchTodos() -> Future<[Todo], Error> {
+    func get(_ todoId: String) -> AnyPublisher<Todo?, Error> {
+        return fetchTodo(todoId).eraseToAnyPublisher()
+    }
+    
+}
+
+extension FakeTodoService {
+    
+    private func fetchTodos() -> Future<[Todo], Error> {
         NSLog("FakeTodoService: fetchTodos")
 
         return Future() { promise in
@@ -31,7 +39,7 @@ class FakeTodoService : TodosService {
         }
     }
 
-    func fetchTodo(_ todoId: String) -> Future<Todo?, Error> {
+    private func fetchTodo(_ todoId: String) -> Future<Todo?, Error> {
         NSLog("FakeTodoService: fetchTodo for id \(todoId)")
 
         return Future() { promise in
@@ -42,6 +50,7 @@ class FakeTodoService : TodosService {
             }
         }
     }
+    
 }
 
 enum FakeError: Error {

@@ -14,45 +14,69 @@ class FirestoreTodosService : TodosService, ObservableObject {
     
     let documentName = "todos"
     
-    func get() -> AnyPublisher<[Todo], Error> {
+    func getAll() -> AnyPublisher<[Todo], Error> {
         
         Future<[Todo], Error> { [weak self] promise in
         
             guard let documentName = self?.documentName else {
-                promise(.failure(FirestoreError.nilResultError))
+                promise(.failure(FirestoreError.unexpectedError))
                 return
             }
             
             Firestore.firestore().collection(documentName)
-              .addSnapshotListener { querySnapshot, error in
+                .addSnapshotListener { querySnapshot, error in
                 
-                if let error = error {
-                  print("Error getting todo items: \(error.localizedDescription)")
-                  return
-                }
+                    if let error = error {
+                      print("Error getting todo items: \(error.localizedDescription)")
+                      return
+                    }
 
-                var todos = querySnapshot?.documents.compactMap { document in
-                  try? document.data(as: Todo.self)
-                } ?? []
-                todos.sort(by: { todo1, todo2 in
-                    return todo1.createdDate < todo2.createdDate
-                })
-                
-                Thread.sleep(forTimeInterval: 3)
-                promise(.success(todos))
-              }
+                    var todos = querySnapshot?.documents.compactMap { document in
+                        try? document.data(as: Todo.self)
+                    } ?? []
+                    todos.sort(by: { todo1, todo2 in
+                        return todo1.createdDate < todo2.createdDate
+                    })
+                    
+                    Thread.sleep(forTimeInterval: 1.5) // Simulate a long loading...
+                    promise(.success(todos))
+                }
         }.eraseToAnyPublisher()
     }
     
-    func fetchTodos() -> Future<[Todo], Error> {
-        return FakeTodoService().fetchTodos()
+    func get(_ todoId: String) -> AnyPublisher<Todo?, Error> {
+        
+        Future<Todo?, Error> { [weak self] promise in
+            
+            guard let documentName = self?.documentName else {
+                promise(.failure(FirestoreError.unexpectedError))
+                return
+            }
+            
+            Firestore.firestore()
+                .collection(documentName)
+                .document(todoId)
+                .addSnapshotListener { querySnapshot, error in
+                    
+                    if let error = error {
+                        print("Error getting todo items: \(error.localizedDescription)")
+                        promise(.failure(FirestoreError.serverError))
+                        return
+                    }
+
+                    Thread.sleep(forTimeInterval: 1.5) // Simulate a long loading...
+                    if let todo = try? querySnapshot?.data(as: Todo.self) {
+                        promise(.success(todo))
+                    } else {
+                        promise(.failure(FirestoreError.itemNotFound))
+                    }
+                }
+        }.eraseToAnyPublisher()
     }
-    
-    func fetchTodo(_ todoId: String) -> Future<Todo?, Error> {
-        return FakeTodoService().fetchTodo(todoId)
-    }
-    
 }
+
 enum FirestoreError: Error {
-    case nilResultError
+    case serverError
+    case unexpectedError
+    case itemNotFound
 }

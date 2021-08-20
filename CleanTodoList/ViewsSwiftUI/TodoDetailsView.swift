@@ -12,12 +12,21 @@ struct TodoDetailsView: View {
     @ObservedObject var viewModel: TodoDetailsViewModel
     
     var body: some View {
-        if viewModel.todo != nil {
-            loadedView
-        } else if viewModel.isLoading {
-            ProgressView()
-        } else {
-            Text("Error while loading Todo item")
+        content
+            .onAppear() {
+                viewModel.loadTodo()
+        }
+    }
+    
+    var content: some View {
+        VStack {
+            if viewModel.todo != nil {
+                loadedView
+            } else if viewModel.isLoading {
+                ProgressView()
+            } else {
+                Text("Error while loading Todo item")
+            }
         }
     }
     

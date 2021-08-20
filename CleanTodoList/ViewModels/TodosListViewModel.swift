@@ -32,7 +32,7 @@ class TodosListViewModel : ObservableObject {
         Analytics.logEvent("TodosListViewModel_loadTodos", parameters: nil)
         
         self.isLoading = true
-        todoService.get()
+        todoService.getAll()
             .receive(on: RunLoop.main)
             .replaceError(with: [])
             .sink { todos in
