@@ -10,13 +10,8 @@ import Combine
 
 class FakeTodoService : TodosService {
     
-    @Published var todos: [Todo] = []
-    
-    // Manually expose name publisher in view model implementation
-    var todosPublisher: Published<[Todo]>.Publisher { $todos }
-    
-    func get() {
-        
+    func get() -> AnyPublisher<[Todo], Error> {
+        return fetchTodos().eraseToAnyPublisher()
     }
     
     func fetchTodos() -> Future<[Todo], Error> {
@@ -47,4 +42,8 @@ class FakeTodoService : TodosService {
             }
         }
     }
+}
+
+enum FakeError: Error {
+    case none
 }
