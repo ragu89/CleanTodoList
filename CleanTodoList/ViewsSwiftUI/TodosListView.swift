@@ -51,12 +51,16 @@ struct TodosListView: View {
                         )
                     ),
                     label: {
-                        HStack {
-                            Text(viewModel.todos[todoIndex].title)
-                                .foregroundColor(.black)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.black)
+                        VStack {
+                            HStack {
+                                Text(viewModel.todos[todoIndex].title)
+                                    .foregroundColor(.black)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(.black)
+                            }
+                            Text(viewModel.todos[todoIndex].createdDateFormatted)
+                                .font(.caption)
                         }
                         
                     }

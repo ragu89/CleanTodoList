@@ -23,9 +23,14 @@ struct TodoDetailsView: View {
     
     var loadedView: some View {
         VStack {
-            if viewModel.todo!.id != nil { Text(viewModel.todo!.id!) }
+            Text(viewModel.todo!.createdDateFormatted)
+                .font(.title2)
             Text(viewModel.todo!.title)
-            TodoCheckbox(isOn: $viewModel.isDone)
+                .font(.largeTitle)
+            HStack {
+                Text("Done :").padding()
+                TodoCheckbox(isOn: $viewModel.isDone).padding()
+            }
         }
     }
 }

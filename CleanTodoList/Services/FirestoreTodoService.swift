@@ -32,7 +32,10 @@ class FirestoreTodosService : TodosService, ObservableObject {
             todos.sort(by: { todo1, todo2 in
                 return todo1.createdDate < todo2.createdDate
             })
-            self.todos = todos;
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.todos = todos;
+            }
           }
     }
     
