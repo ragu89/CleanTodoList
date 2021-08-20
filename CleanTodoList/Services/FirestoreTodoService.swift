@@ -36,4 +36,12 @@ class FirestoreTodosService : TodosService, ObservableObject {
           }
     }
     
+    func fetchTodos() -> Future<[Todo], Error> {
+        return FakeTodoService().fetchTodos()
+    }
+    
+    func fetchTodo(_ todoId: String) -> Future<Todo?, Error> {
+        return FakeTodoService().fetchTodo(todoId)
+    }
+    
 }

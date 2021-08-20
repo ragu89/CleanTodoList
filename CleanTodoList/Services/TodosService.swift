@@ -12,5 +12,7 @@ protocol TodosService {
     
     var todosPublisher: Published<[Todo]>.Publisher { get }
     func get()
+    func fetchTodos() -> Future<[Todo], Error>
+    func fetchTodo(_ todoId: String) -> Future<Todo?, Error>
     
 }

@@ -13,23 +13,58 @@ struct TodosListView: View {
     @ObservedObject var viewModel: TodosListViewModel
     
     var body: some View {
-        ZStack {
-            
-            List(viewModel.todos, id: \.self) { todo in
-                VStack(alignment: .leading) {
-                    Text(todo.title)
-                    Text(todo.createdDateFormatted)
-                        .font(.caption)
-                }.padding(4)
-            }.listStyle(InsetGroupedListStyle())
-            
+        
+        content
+            .onAppear() {
+                viewModel.loadTodos()
+            }
+            .navigationTitle("Todos list")
+        
+    }
+    
+    private var content: some View {
+        ScrollView {
             if viewModel.isLoading {
                 ProgressView()
+            } else {
+                VStack {
+                    VStack {
+                        ForEach(viewModel.todos.indices, id: \.self) { todoIndex in
+                            createTodoCell(todoIndex: todoIndex)
+                        }
+                    }
+                    Spacer()
+                }
             }
-            
         }
-        .onAppear() {
-            viewModel.loadTodos()
+    }
+    
+    private func createTodoCell(todoIndex: Int) -> some View {
+        Group {
+            HStack {
+                TodoCheckbox(isOn: $viewModel.todos[todoIndex].isDone)
+                    .foregroundColor(.black)
+                NavigationLink(
+                    destination: TodoDetailsView(
+                        viewModel: TodoDetailsViewModel(
+                            todoId: viewModel.todos[todoIndex].id
+                        )
+                    ),
+                    label: {
+                        HStack {
+                            Text(viewModel.todos[todoIndex].title)
+                                .foregroundColor(.black)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.black)
+                        }
+                        
+                    }
+                )
+            }
+            .padding()
+            
+            Divider()
         }
     }
 }

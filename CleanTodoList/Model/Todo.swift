@@ -11,8 +11,8 @@ import FirebaseFirestoreSwift
 struct Todo : Hashable, Codable {
     
     @DocumentID var id: String?
-    let title: String
-    let isDone: Bool
+    var title: String
+    var isDone: Bool
     let createdDate: Date
     
     var createdDateFormatted: String {
